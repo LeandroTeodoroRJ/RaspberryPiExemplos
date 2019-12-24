@@ -1,0 +1,36 @@
+*************************************************************
+	   		CONEXÃO SSH
+*************************************************************
+
+Para instalar:
+$sudo apt-get install ssh
+
+Verificar arquivo /etc/ssh/ssh_conf
+
+Para reiniciar o serviço depois de uma alteração de configuração
+$sudo service ssh restart
+
+Para saber o IP executar:
+$ifconfig
+**** No caso da conexão via Wlan ***** 
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:a7:a2:1f  
+          inet addr:192.168.1.9  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::4e22:9440:5340:894a/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:176 errors:0 dropped:0 overruns:0 frame:0
+          TX packets:153 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:21879 (21.3 KiB)  TX bytes:20698 (20.2 KiB)
+
+Para iniciar a conexão:
+$ssh <nome do usuário>@<IP da máquina>
+Exemplo:
+$ssh pi@192.168.1.9
+	Digitar yes e a senha do usuário
+
+Para terminar a conexão
+$exit
+
+
+
+
