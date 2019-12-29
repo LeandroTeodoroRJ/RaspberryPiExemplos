@@ -1,0 +1,22 @@
+*******************************************************************
+                           LENDO UM BOTÃO
+*******************************************************************
+
+Programming Language:	Python
+Compile Version:	3.4.2 
+Code Editor: GNU nano
+Homepage:	https://github.com/LeandroTeodoroRJ/RaspberryPiExemplos.git	
+Program Version:	1.0 	
+Maintainer: Modificado por:	leandroteodoro.rj@hotmail.com 	
+Depends:	python 
+Architecture:	arm-Raspberry Pi3 Model B+  				
+Readme:	Readme.txt
+Links:	https://sourceforge.net/p/raspberry-gpio-python/wiki/Inputs/
+Files:	button.py: Arquivo fonte do exemplo				
+Description:	O programa realiza a leitura de um botão em uma
+                entrada digital do GPIO	
+
+**************************** INFO *********************************
+29/12/2019:	Post
+
+
