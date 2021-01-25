@@ -40,9 +40,9 @@ max_speed_hz *Property* - Recebe o valor da frequência de clock de transmissão
 mode *Property* - Recbe o valor da configuração de clock do SPI, polaridade e
 fase, podendo ser:
 0b00 - Idle do clock em nível baixo | Aquisição dos dados do estado de idle para ativo
-0b01 - Idle do clock em nível baixo | Aquisição dos dados do estado de idle para inativo
+0b01 - Idle do clock em nível baixo | Aquisição dos dados do estado de ativo para idle
 0b10 - Idle do clock em nível alto  | Aquisição dos dados do estado de idle para ativo
-0b11 - Idle do clock em nível alto  | Aquisição dos dados do estado de idle para inativo
+0b11 - Idle do clock em nível alto  | Aquisição dos dados do estado de ativo para idle
 
 xfer(list) - Envia bytes de uma lista pela porta SPI
 
