@@ -1,4 +1,4 @@
-EXEMPLO DO COMANDO gpio readall
+EXEMPLO DO COMANDO gpio readall.
 
  +-----+-----+---------+------+---+---Pi 3---+---+------+---------+-----+-----+
  | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
