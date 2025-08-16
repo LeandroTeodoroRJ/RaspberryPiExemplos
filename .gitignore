@@ -99,3 +99,35 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# **** C++ ****
+# Build artifacts
+*.o
+*.a
+*.so
+*.lo
+*.slo
+*.lai
+*.la
+# Replace 'my_program' with your executable name
+my_program 
+
+# Build directories
+build/
+bin/
+cmake-build-*/
+
+# IDE/Editor specific
+.idea/
+*.swp
+*.swo
+*~
+#*#
+
+# Temporary and log files
+*.log
+*.tmp
+
+# OS specific
+.DS_Store
+Thumbs.db

@@ -1,0 +1,39 @@
+-- Install libgpiod library
+sudo apt-get install libgpiod-dev
+sudo apt-get install python3-libgpiod
+
+-- List chips on board
+gpiodetect
+	gpiochip0 [pinctrl-bcm2835] (54 lines)
+
+-- Show GPIO lines informations
+gpioinfo
+gpiochip0 - 54 lines:
+	line   0:     "ID_SDA"       unused   input  active-high 
+	line   1:     "ID_SCL"       unused   input  active-high 
+	line   2:      "GPIO2"       unused   input  active-high 
+	line   3:      "GPIO3"       unused   input  active-high 
+	line   4:      "GPIO4"       unused   input  active-high 
+	...
+	line  50: "SD_DATA0_R"       unused   input  active-high 
+	line  51: "SD_DATA1_R"       unused   input  active-high 
+	line  52: "SD_DATA2_R"       unused   input  active-high 
+	line  53: "SD_DATA3_R"       unused   input  active-high 
+
+-- Set HIGH level GPIO number 4
+sudo gpioset gpiochip0 4=1
+
+-- Set LOW level GPIO number 4
+sudo gpioset gpiochip0 4=0
+
+-- Read GPIO line
+sudo gpioget gpiochip0 1
+	1
+-- Copy service linux file
+sudo cp gpio_scan.service /etc/systemd/system
+
+-- SystemD service up
+sudo systemctl enable gpio_scan.service
+sudo systemctl start gpio_scan.service
+sudo systemctl stop gpio_scan.service 
+sudo systemctl disable gpio_scan.service 

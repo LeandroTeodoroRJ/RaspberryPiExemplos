@@ -1,0 +1,3 @@
+Resistor: 1K
+V output: 3V3
+
