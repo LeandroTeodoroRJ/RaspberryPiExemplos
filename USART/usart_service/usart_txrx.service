@@ -1,10 +1,10 @@
 [Unit]
-Description=Service to store scan GPIO
+Description=Service to USART interface TX-RX
 
 [Service]
 Type=simple
 User=root
-ExecStart=/bin/sh /home/pi/Dev/GPIO/gpio_service/gpio_scan.sh  
+ExecStart=/home/pi/Dev/USART/usart_service/py_usart_venv/bin/python3 /home/pi/Dev/USART/usart_service/usart_service.py  
 Restart=always
 RestartSec=10
 
