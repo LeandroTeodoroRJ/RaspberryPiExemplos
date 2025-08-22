@@ -32,7 +32,7 @@ void RamdiskFile::file_close(){
 }
 
 char RamdiskFile::read_unique_value(){
-	char value[1];
-	fread(value, sizeof(char), 1, file_to_open);
-	return value[0];
+	char value;
+	fread(&value, sizeof(char), 1, file_to_open);
+	return value;
 }

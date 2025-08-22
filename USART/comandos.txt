@@ -1,0 +1,9 @@
+-- Install Minicom
+sudo apt-get install minicom
+
+-- Open Minicom
+sudo minicom -b 115200 -D /dev/serial0 
+
+-- Configure baud rate transmitter
+sudo stty -F /dev/serial0 115200
+
