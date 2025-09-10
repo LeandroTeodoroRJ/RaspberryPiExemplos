@@ -5,23 +5,25 @@ using namespace std;
 int main(){
 	cout << "USART Application." << endl;
 
+	Usart usart1;
 /*
-	GpioPin button1(INPUT_MODE, "/mnt/ramdisk/gpio17");
-	GpioPin led(OUTPUT_MODE, "/mnt/ramdisk/gpio4");
-
-	while (true){
-		if (button1.get_pin_value() == BUTTON_PRESSED){
-			led.set_pin_value(PIN_HIGH_VALUE);
-		}else{
-			led.set_pin_value(PIN_LOW_VALUE);
-		}
-		this_thread::sleep_for(chrono::milliseconds(100));
-	}
+	cout << "USART trasmitter byte" << endl;
+	printf("Byte Send Method: %d\n", usart1.send_byte(0xFA));
 */
 
-	Usart usart1;
-	printf("USART is idle  Method: %d\n", usart1.is_idle());
-	printf("Byte Send Method: %d\n", usart1.send_byte(0xFF));
+	cout << "USART trasmitter buffer" << endl;
+	usart1.add_byte_to_send(0xDD);
+	usart1.add_byte_to_send(0xEE);
+	usart1.add_byte_to_send(0xFF);
+	usart1.send_buffer();
+
+
+	cout << "USART receiver buffer" << endl;
+	if (usart1.receiver_bytes() == true){
+		for (int i = 0; i < usart1.number_bytes_received; i++){
+			cout << "Received bytes: " << usart1.buffer_rx[i] << endl;
+		}
+	}
 
 	return 0;
 }

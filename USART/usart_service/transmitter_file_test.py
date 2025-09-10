@@ -12,7 +12,7 @@ with open("/mnt/ramdisk/usart_id", "w") as file:
 
 print("Writing data to transfer")
 with open("/mnt/ramdisk/usart_tx_buffer", "w") as file:
-	file.write("5F B8 10 C4")
+	file.write("FF AA BB")
 
 print("Enable to transfer")
 with open("/mnt/ramdisk/usart_tx_send", "w") as file:
@@ -20,8 +20,8 @@ with open("/mnt/ramdisk/usart_tx_send", "w") as file:
 
 time.sleep(2)
 
-'''
+
 print("Putting TX is free")
 with open("/mnt/ramdisk/usart_idle_tx", "w") as file:
 	file.write("0")
-'''
+
