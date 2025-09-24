@@ -1,7 +1,7 @@
 '''
  * Description: Service to acsess USART hardware.
  * Hostpage: https://github.com/LeandroTeodoroRJ
- * Version: 1.0.0
+ * Version: 1.0.1
  * Dependences: pyserial 3.5
  * Maintainer: leandroteodoro.enganharia@gmail.com
  * Architecture: Raspberry PI 2W
@@ -32,7 +32,12 @@ ser.baud = BAUD_RATE
 ser.parity = serial.PARITY_NONE
 ser.stopbits = serial.STOPBITS_ONE
 ser.bytesize = serial.EIGHTBITS
-ser.timeout = 1
+ser.timeout = 0.2
+
+
+READ_BUFFER_TX_ERROR = 1
+NO_ERROR_TX = 2
+
 
 # TRANSMITTER
 def create_usart_tx_file_blank():
@@ -52,7 +57,10 @@ def create_usart_tx_send():
 def usart_tx_is_request():
 	with open("/mnt/ramdisk/usart_idle_tx", "r") as file:
 		file_data = file.read()
-		frist_char_file = file_data[0]
+		try:
+			frist_char_file = file_data[0]
+		except IndexError:
+			return True
 		if (frist_char_file == "1"):
 			return True
 		else:
@@ -90,11 +98,15 @@ def transmitter_bytes():
 	str_message = read_bytes_to_transmitter()
 	i = 0
 	while (i < len(str_message)):
-		byte_to_send = str_message[i]
-		byte_to_send += str_message[i+1]
-		i += 2
-		data = bytes.fromhex(byte_to_send)
-		ser.write(data)
+		try:
+			byte_to_send = str_message[i]
+			byte_to_send += str_message[i+1]
+			i += 2
+			data = bytes.fromhex(byte_to_send)
+			ser.write(data)
+		except IndexError:
+			create_usart_tx_file_blank()
+			return READ_BUFFER_TX_ERROR
 	create_usart_tx_file_blank()
 	create_usart_tx_send()
 	global id_rx_code
@@ -145,12 +157,14 @@ def usart_received_new_byte():
 def usart_rx_is_free():
 	with open("/mnt/ramdisk/usart_rx", "r") as file:
 		file_data = file.read()
-		frist_char_file = file_data[0]
-		if (frist_char_file == "0"):
-			return True
-		else:
+		try:
+			frist_char_file = file_data[0]
+			if (frist_char_file == "0"):
+				return True
+			else:
+				return False
+		except IndexError:
 			return False
-
 
 def receiver_bytes():
 	if (usart_rx_is_free() != True):
