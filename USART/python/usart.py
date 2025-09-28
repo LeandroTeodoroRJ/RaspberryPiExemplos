@@ -1,7 +1,7 @@
 '''
  * Description: Module to acess usart by file.
  * Hostpage: https://github.com/LeandroTeodoroRJ
- * Version: 1.0.0
+ * Version: 1.0.1
  * Dependences: --
  * Maintainer: leandroteodoro.enganharia@gmail.com
  * Architecture: Raspberry PI 2W
@@ -98,7 +98,13 @@ class Usart:
 
 
 	def add_byte_to_transmitter(self, byte):
-		self.bytes_to_transmitter.append(str(hex(byte))[2::].upper())
+		if (byte <= 0xF):
+			if (byte == 0x00):
+				self.bytes_to_transmitter.append("00")
+			else:
+				self.bytes_to_transmitter.append("0" + str(hex(byte))[2::].upper())
+		else:
+			self.bytes_to_transmitter.append(str(hex(byte))[2::].upper())
 
 	def was_received_bytes(self):
 		with open("/mnt/ramdisk/usart_rx", "r") as file:

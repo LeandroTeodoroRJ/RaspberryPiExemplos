@@ -3,6 +3,7 @@ from usart import Usart
 import time
 
 button17 = Button("/mnt/ramdisk/gpio17")
+button27 = Button("/mnt/ramdisk/gpio27")
 usart1 = Usart()
 DEVICE_ADDRESS = 0X21
 
@@ -33,9 +34,13 @@ def usart_events():
 
 while True:
 	button17.key_scan()
+	button27.key_scan()
 	if (button17.is_clicked() == True):
 		send_message_to_this_device()
 		button17.event_end()
+	if (button27.is_clicked() == True):
+		send_message_to_other_device()
+		button27.event_end()
 	usart1.receiver_bytes()
 	usart_events()
 	time.sleep(0.03)
