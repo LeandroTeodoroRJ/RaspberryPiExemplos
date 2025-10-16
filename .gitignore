@@ -131,3 +131,52 @@ cmake-build-*/
 # OS specific
 .DS_Store
 Thumbs.db
+
+
+# Compiled object files and executables
+*.o
+*.ppu
+*.dcu
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Project-specific build directories
+# For Free Pascal
+obj/
+lib/
+
+# For Delphi (or other IDEs)
+__history/
+*.bak
+*.identcache
+*.res
+*.dof
+*.dsk
+*.opt
+*.stat
+*.local
+*.compiled
+*.map
+*.tds
+*.bpl
+*.dcp
+*.cfg
+*.log
+*.ncb
+*.suo
+*.user
+*.vbg
+*.vbp
+*.vbw
+*.vcp
+*.vcproj
+*.aps
+*.manifest
+*.il
+
+# Temporary files
+*.~*
+*.tmp
+*.bak
