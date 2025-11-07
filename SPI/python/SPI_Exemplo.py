@@ -1,7 +1,8 @@
 # Exemplo de uso da interface SPI
-# Raspberry Pi3 Model B+
+# Raspberry Pi 2W / Raspberry Pi3 Model B+
 
 import spidev
+
 spi = spidev.SpiDev()
 bus = 0
 device = 0

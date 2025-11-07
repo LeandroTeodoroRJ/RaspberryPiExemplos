@@ -1,18 +1,18 @@
-INTRUÇÕES PARA ITILIZAÇÃO DA INTERFACE SPI NO RASPBERRY PI3 MODEL B 
+INTRUÇÕES PARA ITILIZAÇÃO DA INTERFACE SPI NO RASPBERRY PI3 MODEL B+ 
 --------------------------------------------------------------------
 
-INSTALAÇÃO DO PACOTE NECESSÁRIO
+-- INSTALAÇÃO DO PACOTE NECESSÁRIO
 Para instalação do pacote do Pytyhon spidev utilize o gerenciador de
 pacotes pip.
-$pip install spidev
+$pip3 install spidev
 
 Para confirmar se o pacote foi instalado no prompt do python idle digite
 >>> import spidev
 
-ARQUIVO DE EXEMPLO DE CÓDIGO
+-- ARQUIVO DE EXEMPLO DE CÓDIGO
 O arquivo de exemplo com o código python encontra-se em SPI_Exemplo.py
 
-HADWARE
+-- HARDWARE
 Habilite a porta SPI no software de configuração do Raspberry.
 Foi utilizado para esse exemplo os pinos abaixo, que são referentes
 a interface SPI zero (SPI0).
@@ -22,7 +22,7 @@ a interface SPI zero (SPI0).
 24 - CE0
 26 - CE1 
 
-FUNÇÕES DA BIBLIOTECA SPIDEV
+-- FUNÇÕES DA BIBLIOTECA SPIDEV
 open(bus, device) - Abre a comunicação com a interface SPI onde bus é
 a porta SPI que será utilizada e device é o chip slave que será habilitado
 para recepção no barramento através do pino de Chip Enable(CE).
@@ -46,6 +46,6 @@ fase, podendo ser:
 
 xfer(list) - Envia bytes de uma lista pela porta SPI
 
-REFERÊNCIAS
+-- REFERÊNCIAS
 https://pypi.org/project/spidev/
 https://www.raspberrypi.org/documentation/hardware/raspberrypi/spi/README.md
